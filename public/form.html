@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de alta de producto</title>
+</head>
+<body>
+    <div>
+        <h2>Agregar productos</h2>
+        <form action="/api/productos" method="POST" enctype="multipart/form-data">
+            <div class="input-group">
+                Nombre: <input type="text" name="nombre" >
+                Precio: <input type="number" name="precio" >
+            </div>
+            <div class="input-group">
+                Imagen: <input type="file" name="file" >
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    
+</body>
+</html>

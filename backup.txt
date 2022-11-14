@@ -1,0 +1,37 @@
+async udpateById(number, object){
+        try{
+            const leer = await fs.readFile(this.path, 'utf-8')
+            const dataFormateada = JSON.parse(leer)
+            const index = dataFormateada.findIndex((prod) => prod.id===number)
+            if (index != -1){
+                for (let key in object){
+                    if (object[key] != null){
+                        dataFormateada[index][key] = object[key]
+                        console.log(`object.${key} = ${object[key]}`)
+                    }
+                }
+                await fs.writeFile(this.path, JSON.stringify(dataFormateada, null, 2))
+                return            
+            }
+            else return null
+        }
+        catch(err){console.log(err)}
+    }
+
+
+    async udpateById(number, object){
+        try{
+            const leer = await fs.readFile(this.path, 'utf-8')
+            const dataFormateada = JSON.parse(leer)
+            const index = dataFormateada.findIndex((prod) => prod.id===number)
+            if (index != -1){
+                for (let key in dataFormateada[index]){
+                    object[key] && (dataFormateada[index][key] = object[key])
+                }
+                await fs.writeFile(this.path, JSON.stringify(dataFormateada, null, 2))
+                return            
+            }
+            else return null
+        }
+        catch(err){console.log(err)}
+    }
